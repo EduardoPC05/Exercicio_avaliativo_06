@@ -114,12 +114,12 @@ bool apagar(Lista lista, Infotype info){
     if(lista != NULL){
         if(lista->head != NULL){
             Node walker = lista->head;
-            while (walker->info->prioridade != info && walker->next != NULL){
+            while (walker->info->prioridade != info->prioridade && walker->next != NULL){
                 walker = walker->next;
             }
 
             //verificar se encontrou a info ou se a info não existe
-            if(walker->info->prioridade == info){
+            if(walker->info->prioridade == info->prioridade){
                 //info encontrada, apagar o nó
                 if(walker == lista->head){
                     //primeiro nó que deve ser excluído
@@ -167,7 +167,8 @@ void imprime_lista(Lista lista){
     if(lista != NULL){
         Node walker = lista->head;
         while (walker != NULL){
-            printf("| N_SUS: %ld |\n", walker->info->numero_sus);
+            printf("| N_SUS: %ld |", walker->info->numero_sus);
+            printf("| PRIO.: %d |\n", walker->info->prioridade);
             walker = walker->next;
         }
     }

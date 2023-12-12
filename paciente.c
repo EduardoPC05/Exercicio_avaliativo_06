@@ -7,13 +7,40 @@ struct paciente{
    int lote;
 };
 
-Infotype criar_paciente(long n_sus, int idade, int prioridade){
+Infotype criar_paciente(long n_sus, int idade){
     Infotype paciente = malloc(sizeof(struct paciente));
     paciente->numero_sus = n_sus;
     paciente->idade = idade;
-    paciente->prioridade = prioridade;
-    paciente->lote = NULL;
+    // paciente->prioridade = definir_prioridade(q,paciente);
+    paciente->prioridade = -1;
+    paciente->lote = -1;
     return paciente;
+}
+
+
+int definir_prioridade(int q[],Infotype paciente){
+    int retorno = 10;
+    bool achou = false;
+    
+    int i = 0;
+
+    while (i < 9 && !achou){
+       if (q[i] == 1){
+        if (i < 1){
+            retorno = i+1;
+        }else{
+            retorno = i+2;
+        }
+        achou = true;
+       }
+       i++;
+    }
+
+    if (retorno != 1 && paciente->idade >= 60){
+        retorno = 2;
+    }
+
+    return retorno;
 }
 
 bool vacinar_paciente(Infotype paciente, int lote){
