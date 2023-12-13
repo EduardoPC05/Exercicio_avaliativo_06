@@ -7,9 +7,6 @@ struct paciente{
    int lote;
 };
 
-
-
-
 Infotype criar_paciente(long n_sus, int idade,bool q[]){
     Infotype paciente = malloc(sizeof(struct paciente));
     paciente->numero_sus = n_sus;

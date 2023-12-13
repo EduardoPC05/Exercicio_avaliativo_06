@@ -19,7 +19,7 @@ A produção deste software foi feita de forma conjunta e discutida entre todos 
 
 ![Screenshot do menu principal](images/image.png)
 
-![Screensoht da aba de inserir paciente](images/questions.png)
+![Screensoht da aba de inserir paciente](images/questions.jpg)
 
 ![Screenshot da Lista de pacientes](images/list.png)
 
