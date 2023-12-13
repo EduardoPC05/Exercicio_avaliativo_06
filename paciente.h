@@ -5,7 +5,7 @@
 typedef struct paciente* Infotype;
 
 
-Infotype criar_paciente(long n_sus, int idade);
+Infotype criar_paciente(long n_sus, int idade,int q[]);
 
 int definir_prioridade(int q[],Infotype paciente);
 

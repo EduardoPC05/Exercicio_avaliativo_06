@@ -168,7 +168,7 @@ void imprime_lista(Lista lista){
         Node walker = lista->head;
         while (walker != NULL){
             printf("| N_SUS: %ld |", walker->info->numero_sus);
-            printf("| PRIO.: %d |\n", walker->info->prioridade);
+            printf(" PRIO.: %d |\n", walker->info->prioridade);
             walker = walker->next;
         }
     }

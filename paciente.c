@@ -7,12 +7,14 @@ struct paciente{
    int lote;
 };
 
-Infotype criar_paciente(long n_sus, int idade){
+
+
+
+Infotype criar_paciente(long n_sus, int idade,int q[]){
     Infotype paciente = malloc(sizeof(struct paciente));
     paciente->numero_sus = n_sus;
     paciente->idade = idade;
-    // paciente->prioridade = definir_prioridade(q,paciente);
-    paciente->prioridade = -1;
+    paciente->prioridade = definir_prioridade(q,paciente);
     paciente->lote = -1;
     return paciente;
 }
