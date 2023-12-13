@@ -1,1 +1,0 @@
-# Exercicio_avaliativo_06

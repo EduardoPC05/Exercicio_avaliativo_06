@@ -8,20 +8,40 @@ void dar_vacina(Infotype paciente,Pilha Pilha);
 
 int main(int argc, char const *argv[])
 {
+    int aux;
+
     Lista fila = criar();
     Pilha pilha;
-
     init(&pilha);
 
-    insere_ordenado(fila,ler_paciente());
-    insere_ordenado(fila,ler_paciente());
+    do
+    {
+       printf("\n-----MENU-----\n");
+       printf("1 - INSERIR PACIENTE\n");
+       printf("2 - VACINAR PACIENTE\n");
+       printf("3 - LISTAR PACIENTES\n");
+       printf("4 - LISTAR PACIENTES VACINADOS\n");
+       printf("0 - SAIR\n");
 
-    imprime_lista(fila);
+       scanf("%d",&aux);
+       
 
-    dar_vacina(dequeue(fila),pilha);
-    dar_vacina(dequeue(fila),pilha);
+       switch (aux){
+       case 1:
+            insere_ordenado(fila,ler_paciente());
+            break;
+       case 2:
+            dar_vacina(dequeue(fila),pilha);
+            break;
+       case 3:
+            imprime_lista(fila);
+            break;
+        case 4:
+            imprime_pilha(pilha);
+            break;
+       }
+    } while (aux != 0);
     
-    imprime_pilha(pilha);
 
     return 0;
 }
@@ -33,36 +53,36 @@ Infotype ler_paciente(){
     Infotype retorno;
 
     bool q[10];
-    printf("Digite o numero do sus:");
+    printf("DIGITE SEU NÚMERO DO SUS:");
     scanf("%ld",&n_sus);
-    printf("Digite a idade: ");
+    printf("DIGITE SUA IDADE:");
     scanf("%d",&idade);
-    printf("PARA RESPONDER AS PERGUNTAS A SEGUIR DIGITE 1 PARA SIM E 0 PARA NÃO\n");
-    printf("Trabalha na saúde?\n");
+    printf("\nPARA RESPONDER AS PERGUNTAS A SEGUIR DIGITE 1 PARA SIM E 0 PARA NÃO\n");
+    printf("TRABALHA NA ÁREA DA SAÚDE?\n");
     scanf("%d",&aux);
     q[0] = aux;
-    printf("Faz parte da População indígena?\n");
+    printf("FAZ PARTE DA POPULAÇÃO INDÍGENA?\n");
     scanf("%d",&aux);
     q[1] = aux;
-    printf("Faz parte da População ribeirinha e quilombola?\n");
+    printf("FAZ PARTE DA POPULAÇÃO RIBEIRINHA E QUILOMBOLA\n");
     scanf("%d",&aux);
     q[2] = aux;
-    printf("Possui alguma comorbidade?\n");
+    printf("POSSUI ALGUMA COMORBIDADE?\n");
     scanf("%d",&aux);
     q[3] = aux;
-    printf("Trabalha na educação?\n");
+    printf("TRABALHA NA ÁREA DA EDUCAÇÃO\n");
     scanf("%d",&aux);
     q[4] = aux;
-    printf("Possui deficiẽncia permanente severa?\n");
+    printf("POSSUI DEFICIÊNCIA SEVERA?\n");
     scanf("%d",&aux);
     q[5] = aux;
-    printf("Faz parte da força de segurança e salvamento?\n");
+    printf("FAZ PARTE DA FORÇA DE SEGURANÇA OU SALVAMENTO?\n");
     scanf("%d",&aux);
     q[6] = aux;
-    printf("É funcionário do sistema penintenciário?\n");
+    printf("É FUNCIONÁRIO DO SISTEMA PENITENCIÁRIO\n");
     scanf("%d",&aux);
     q[7] = aux;
-    printf("Faz parte da população carcerária?\n");
+    printf("FAZ PARTE DA POPULAÇÃO CARCERÁRIA\n");
     scanf("%d",&aux);
     q[8] = aux;
 
@@ -74,7 +94,7 @@ Infotype ler_paciente(){
 void dar_vacina(Infotype paciente,Pilha Pilha){
     int lote;
 
-    printf("Digite o lote da vacina: ");
+    printf("DIGITE O LOTE DA VACINA:");
     scanf("%d",&lote);
 
     vacinar_paciente(paciente,lote);
